@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>OSG CA Servlet</display-name>
+    <servlet>
+        <servlet-name>getcert</servlet-name>
+        <servlet-class>org.cilogon.osg.servlet.OsgCAServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getcert</servlet-name>
+        <url-pattern>/getcert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>getcert</servlet-name>
+        <url-pattern>/gethostcert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>getcert</servlet-name>
+        <url-pattern>/getusercert</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>getcert</servlet-name>
+        <url-pattern>/getservicecert</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>revoke</servlet-name>
+        <servlet-class>org.cilogon.osg.servlet.OsgRevokeServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>revoke</servlet-name>
+        <url-pattern>/revoke</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ping</servlet-name>
+        <servlet-class>org.cilogon.osg.servlet.OSGPingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ping</servlet-name>
+        <url-pattern>/ping</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>org.cilogon.osg.OsgBootstrapper</listener-class>
+    </listener>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/generalerror.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/generalerror.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/generalerror.jsp</location>
+    </error-page>
+
+    <context-param>
+        <param-name>osg:server.config.file</param-name>
+        <param-value>/var/www/config/osg.xml</param-value>
+    </context-param>
+
+<!--
+    <context-param>
+        <param-name>osg:server.config.file</param-name>
+        <param-value>/home/ncsa/dev/csd/config/servers.xml</param-value>
+    </context-param>
+-->
+
+
+    <context-param>
+        <param-name>osg:server.config.name</param-name>
+        <param-value>osg</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>revoke.directory</param-name>
+        <param-value>/opt/osg/revoke</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>mail.enabled</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>mail.server</param-name>
+        <param-value>smtp.ncsa.uiuc.edu</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>25</param-value>
+    </context-param>
+
+    <!-- We're not using a password with our implementation - just
+    a placeholder below -->
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>password</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>from</param-name>
+        <param-value>alerts@cilogon.org</param-value>
+    </context-param>
+
+
+    <context-param>
+        <param-name>recipients</param-name>
+        <param-value>alerts@cilogon.org</param-value>
+    </context-param>
+
+
+    <context-param>
+        <param-name>message.template</param-name>
+        <param-value>/opt/osg/message.txt</param-value>
+    </context-param>
+
+
+    <context-param>
+        <param-name>subject.template</param-name>
+        <param-value>/opt/osg/subject.txt</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>use.ssl</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>start.TLS</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+        </jsp-property-group>
+    </jsp-config>
+
+</web-app>
