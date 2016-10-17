@@ -11,7 +11,7 @@
     String mailto      = "alerts@cilogon.org";  // production address
 //    String mailto      = "gaynor@illinois.edu";  // Jeff's address
     String mailsubject = "Error caught by Tomcat on "; // + hostname
-    String mailsmtp    = "smtp.ncsa.uiuc.edu";
+    String mailsmtp    = "localhost";
     String jsonException = "unknown";
     String exceptionString = null;
     String status = "HTTP/1.1 500 Internal Server Error";

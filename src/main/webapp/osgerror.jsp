@@ -3,11 +3,13 @@
 <%@ page import="org.cilogon.osg.JSONFormatter" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.Properties" %>
+<%@ page import="javax.mail.*" %>
+<%@ page import="javax.mail.internet.*" %>
 <%!
             String mailto      = "alerts@cilogon.org";  // production address
          //   String mailto      = "gaynor@illinois.edu";  // Jeff's address
             String mailsubject = "Error caught by Tomcat on "; // + hostname
-            String mailsmtp    = "smtp.ncsa.uiuc.edu";
+            String mailsmtp    = "localhost";
             String jsonException = "unknown";
 
             // Function to send email
@@ -62,6 +64,13 @@ er += "Client : " + request.getRemoteAddr() + "\n";
 er += "Servlet: " + servletPath + "\n";
 er += "URL    : " + requestURI + "\n";
 er += "\n";
+
+if (jsonResp.length() > 0) {
+    er += "JSON Response\n";
+    er += "-------------\n";
+    er += jsonResp + "\n";
+    er += "\n";
+}
 
 if (excep != null) {
     er += "Exception\n";

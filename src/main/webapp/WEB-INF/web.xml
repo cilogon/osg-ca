@@ -98,7 +98,7 @@
 
     <context-param>
         <param-name>mail.server</param-name>
-        <param-value>smtp.ncsa.uiuc.edu</param-value>
+        <param-value>localhost</param-value>
     </context-param>
 
     <context-param>
