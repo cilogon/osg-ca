@@ -166,8 +166,12 @@ public class OsgCAServlet extends AbstractServlet {
                 }
                 altHostnames = getUniqueSAN(hostName, altHostnames);
 
-                myProxyUsername = myProxyUsername + " "
-                        + PARAM_ALT_HOSTNAME + "=" + altHostnames;
+                if(altHostnames!= null && altHostnames.length()!= 0) {
+                    // CIL-375 It is still possible that alt hostnames is empty after all that. Do not pass it to MyProxy
+                    // since it will result in an empty entry in the cert, which can cause issues for consumers of the cert.
+                    myProxyUsername = myProxyUsername + " "
+                            + PARAM_ALT_HOSTNAME + "=" + altHostnames;
+                }
                 debug("username=" + myProxyUsername);
 
             }
