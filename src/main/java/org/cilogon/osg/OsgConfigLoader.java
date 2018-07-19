@@ -4,6 +4,8 @@ import edu.uiuc.ncsa.myproxy.oa4mp.server.servlet.MyProxyConfigurationLoader;
 import edu.uiuc.ncsa.security.core.util.MyLoggingFacade;
 import org.apache.commons.configuration.tree.ConfigurationNode;
 
+import java.util.HashMap;
+
 /**  Mostly extended to get a better startup message
  * <p>Created by Jeff Gaynor<br>
  * on 10/15/12 at  3:20 PM
@@ -35,5 +37,8 @@ public class OsgConfigLoader extends MyProxyConfigurationLoader<OsgEnvironment> 
         return new OsgEnvironment(myLogger, getMyProxyFacadeProvider());
     }
 
-
+    @Override
+    public HashMap<String, String> getConstants() {
+        return null;
+    }
 }
