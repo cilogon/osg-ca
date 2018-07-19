@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.cilogon.osg</groupId>
     <artifactId>osg-ca</artifactId>
-    <version>4.1-SNAPSHOT</version>
+    <version>4.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -46,17 +46,17 @@
         <dependency>
             <groupId>edu.uiuc.ncsa.security</groupId>
             <artifactId>ncsa-security-servlet</artifactId>
-            <version>4.1-SNAPSHOT</version>
+            <version>4.1</version>
         </dependency>
         <dependency>
             <artifactId>oa4mp-server-api</artifactId>
             <groupId>edu.uiuc.ncsa.myproxy</groupId>
-            <version>4.1-SNAPSHOT</version>
+            <version>4.1</version>
         </dependency>
         <dependency>
             <groupId>edu.uiuc.ncsa.security.delegation</groupId>
             <artifactId>ncsa-security-delegation-common</artifactId>
-            <version>4.1-SNAPSHOT</version>
+            <version>4.1</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -67,12 +67,12 @@
         <dependency>
             <groupId>edu.uiuc.ncsa.myproxy</groupId>
             <artifactId>myproxy-logon</artifactId>
-            <version>4.1-SNAPSHOT</version>
+            <version>4.1</version>
         </dependency>
         <dependency>
             <groupId>edu.uiuc.ncsa.security</groupId>
             <artifactId>ncsa-security-core</artifactId>
-            <version>4.1-SNAPSHOT</version>
+            <version>4.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
